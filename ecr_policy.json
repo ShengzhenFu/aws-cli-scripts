@@ -1,0 +1,20 @@
+{
+  "Version": "2017-10-17",
+  "Statement": [
+    {
+      "Sid"      : "AllowPull",
+      "Effetc"   : "Allow",
+      "Principal": "*",
+      "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:BatchGetImage",
+        "ecr:GetDownloadUrlForLayer"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincialOrgID": "o-xx22xx7xxx"
+        }
+      }
+    }
+  ]
+}

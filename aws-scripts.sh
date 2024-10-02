@@ -103,3 +103,13 @@ do
     echo "$bucket"
   fi
 done
+
+# update ECR repository policy
+for i in 'repository_a' \
+         'repository_b' \
+         'repository_c'
+do
+  aws ecr set-repository-policy --repository-name "$i" --policy-text file://ecr_policy.json --profile default --region us-west-2
+  echo "repository policy update successfully on $i"
+  sleep 2
+done
