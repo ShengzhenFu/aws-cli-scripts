@@ -24,3 +24,19 @@ sudo podman pod start webapp
 # systemd for pod
 podman generate systemd --files --name webapp
 sudo cp pod-webapp.service container-hello-podman.service /etc/systemd/system
+
+systemctl status pod-webapp.service
+systemctl is-enabled pod-webapp.service
+systemctl enable pod-webapp.service
+systemctl start pod-webapp.service
+
+# destroy all
+systemctl stop pod-webapp.service
+systemctl stop container-hello-podman.service
+systemctl disable pod-webapp.service
+systemctl disable container-hello-podman.service
+rm /etc/systemd/pod-webapp.service
+rm /etc/systemd/container-hello-podman.service
+systemctl daemon-reload
+podman stop webapp
+podman rm webapp

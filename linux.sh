@@ -16,3 +16,7 @@ dd if=/dev/zero of=1g.img bs=100M count=10
 
 # retry command until max retry limit
 TRY=1; until [[ $TRY -gt 3 ]] || rm temp.txt ; do echo retry $TRY; echo "please wait... $(date)"; TRY=$(expr $TRY + 1); sleep 5; done;
+
+# tcpdump
+tcpdump -i any tcp port 8080 -w /tmp/tcpdump.pcap &
+fg %1
