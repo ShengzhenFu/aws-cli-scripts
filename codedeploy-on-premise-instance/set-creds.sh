@@ -37,4 +37,4 @@ fi
 exit 0
 
 # cronjob
-# 0,15,30,45 * * * * /root/set-creds.sh
+# */15 * * * * /root/set-creds.sh >> /var/log/cron.log && echo "update sts credentials at $(date +\%Y\%m\%d_\%H\%M\%SZ)" >> /var/log/cron.log 2>&1
